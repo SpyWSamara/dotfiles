@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export DOTFILES_DOTS=${0:a:h}/dots
+local DOTFILES_DOTS=${0:a:h}/dots
 
 for FILE in $DOTFILES_DOTS/.*(.); do
     local FILENAME=${FILE:t}
