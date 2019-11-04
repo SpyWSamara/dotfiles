@@ -2,9 +2,9 @@
     editor = code --wait
 
 [diff]
-    tool = default-difftool
+    tool = vscode
 
-[difftool "default-difftool"]
+[difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
 
 # Include local settings
