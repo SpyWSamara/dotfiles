@@ -1,5 +1,5 @@
-export DOTFILES=${0:a:h}
+export DOTFILES_ZSH=${0:a:h}
 
-source $DOTFILES/env.zsh
-source $DOTFILES/aliases.zsh
-source $DOTFILES/functions.zsh
+source $DOTFILES_ZSH/env.zsh
+source $DOTFILES_ZSH/aliases.zsh
+source $DOTFILES_ZSH/functions.zsh
