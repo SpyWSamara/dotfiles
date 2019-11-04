@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+export DOTFILES_DOTS=${0:a:h}/dots
+
+for FILE in $DOTFILES_DOTS/.*(.); do
+    local FILENAME=${FILE:t}
+    echo "Setup file: $FILENAME"
+
+    [ -e $HOME/$FILENAME ] && mv $HOME/$FILENAME $HOME/$FILENAME.backup
+    ln -sf $FILE $HOME/$FILENAME
+done
