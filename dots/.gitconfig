@@ -1,0 +1,15 @@
+[core]
+	editor = code --wait
+
+[diff]
+    tool = default-difftool
+
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+# Include local settings
+# Requires Git 1.7.10
+# git config -f ~/.gitlocal user.email "user@server.tld"
+# git config -f ~/.gitlocal user.name "User Name"
+[include]
+	path = .gitlocal
