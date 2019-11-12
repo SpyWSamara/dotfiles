@@ -63,7 +63,7 @@ function ftp-mount() {
     local PASSWORD=$2
     local SERVER=$3
     local PORT="${4:-21}"
-    local MOUNT_PATH="/tmp/$USER_$SERVER"
+    local MOUNT_PATH="/tmp/${USER}_${SERVER}"
 
     [ -d $MOUNT_PATH ] || mkdir -p $MOUNT_PATH
 
