@@ -13,5 +13,5 @@ alias rsync-bitrix="rsync -azh --stats --info=progress2 --exclude=bitrix/{backup
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip6="dig +short -6 myip.opendns.com aaaa @resolver1.ipv6-sandbox.opendns.com"
 alias dotfiles="code ${DOTFILES_ZSH:h}"
-alias dotfiles-pull="git -C ${DOTFILES_ZSH:h} pull && source $HOME/.zshrc"
-alias dotfiles-push="git -C ${DOTFILES_ZSH:h} push"
+alias dotfiles-pull="git -C ${DOTFILES_ZSH:a:h} pull && source $HOME/.zshrc"
+alias dotfiles-push="git -C ${DOTFILES_ZSH:a:h} push"
