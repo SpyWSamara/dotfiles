@@ -15,3 +15,4 @@ alias myip6="dig +short -6 myip.opendns.com aaaa @resolver1.ipv6-sandbox.opendns
 alias dotfiles="code ${DOTFILES_ZSH:a:h}"
 alias dotfiles-pull="git -C ${DOTFILES_ZSH:a:h} pull && source $HOME/.zshrc"
 alias dotfiles-push="git -C ${DOTFILES_ZSH:a:h} push"
+alias find-bom-files="grep -rlI $'\xEF\xBB\xBF'"
