@@ -38,6 +38,10 @@ function install-software() {
     sudo dnf install telegram-desktop transmission-gtk discord htop vim git p7zip curl wget keepassxc wireguard-tools remmina chromium-freeworld vlc ffmpeg
 }
 
+function install-flathub() {
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+}
+
 function install-all() {
     install-zsh
     install-rpmfusion
@@ -47,5 +51,6 @@ function install-all() {
     install-nvidia
     install-php
     install-themes
+    install-flathub
     install-software
 }
