@@ -30,6 +30,10 @@ function install-php() {
     sudo dnf install php php-cs-fixer composer
 }
 
+function install-nodejs() {
+    sudo dnf install nodejs
+}
+
 function install-themes() {
     sudo dnf install gnome-tweaks papirus-icon-theme breeze-cursor-theme
 }
@@ -50,6 +54,7 @@ function install-all() {
     install-intel
     install-nvidia
     install-php
+    install-nodejs
     install-themes
     install-flathub
     install-software
