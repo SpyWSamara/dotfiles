@@ -39,7 +39,7 @@ function install-themes() {
 }
 
 function install-software() {
-    sudo dnf install telegram-desktop transmission-gtk discord htop vim git p7zip curl wget keepassxc wireguard-tools remmina chromium-freeworld vlc ffmpeg
+    sudo dnf install telegram-desktop transmission-gtk discord htop vim git p7zip curl wget keepassxc wireguard-tools remmina chromium-freeworld vlc ffmpeg syncthing
 }
 
 function install-flathub() {
