@@ -19,11 +19,15 @@ function install-vms() {
 }
 
 function install-intel() {
-    sudo dnf install intel-mediasdk libva-intel-driver libva-intel-hybrid-driver xorg-x11-drv-intel libva-vdpau-driver libva-utils
+    if [[ $(lspci | grep Intel | grep VGA) ]]; then
+        sudo dnf install intel-mediasdk libva-intel-driver libva-intel-hybrid-driver xorg-x11-drv-intel libva-vdpau-driver libva-utils
+    fi
 }
 
 function install-nvidia() {
-    sudo dnf install "kernel-devel-$(uname -r)" akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
+    if [[ $(lspci | grep NVIDIA | grep VGA) ]]; then
+        sudo dnf install "kernel-devel-$(uname -r)" akmod-nvidia xorg-x11-drv-nvidia-cuda vdpauinfo libva-vdpau-driver libva-utils
+    fi
 }
 
 function install-php() {
