@@ -48,6 +48,7 @@ function install-software() {
 
 function install-flathub() {
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak install Spotify
 }
 
 function install-all() {
