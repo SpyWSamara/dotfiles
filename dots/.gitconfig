@@ -10,3 +10,5 @@
 # git config -f ~/.gitlocal user.name "User Name"
 [include]
     path = .gitlocal
+[pull]
+    ff = only
