@@ -86,20 +86,21 @@ function redirects() {
             RESULT[$KEY]="$VALUE"
         done <<< $(curl -so /dev/null -w "http %{http_version}\ncode %{http_code}\nurl %{redirect_url}" "$URL")
 
+        COLOR=''
+        [[ $RESULT[http] -eq 2 ]] && COLOR=$fg[green]
+        local HTTP="HTTP/$COLOR${(r:4:)RESULT[http]}$reset_color"
+        COLOR=$fg_bold[black]$bg[red]
+
         if [[ -z $RESULT[url] ]]; then
-            COLOR=$fg[red]
             [[ $(($RESULT[code])) -eq 200 ]] && COLOR=$fg[green]
-            echo "Result [$COLOR$RESULT[code]$reset_color]: $COLOR$URL$reset_color"
+            echo $HTTP"[$COLOR${(r:3:)RESULT[code]}$reset_color]"
             break
         else
-            COLOR=''
-            [[ $RESULT[http] -eq 2 ]] && COLOR=$fg[green]
-            echo -n "HTTP/$COLOR$RESULT[http]$reset_color "
-            COLOR=$fg_bold[red]
             [[ $(($RESULT[code])) -eq 301 || $(($RESULT[code])) -eq 308 ]] && COLOR=$fg[yellow]
-            echo -n "[$COLOR$RESULT[code]$reset_color] "
+            local CODE="[$COLOR${(r:3:)RESULT[code]}$reset_color] "
             COLOR=$fg[yellow]
-            echo "=> $COLOR$RESULT[url]$reset_color"
+            local NEXT_URL=">> $COLOR$RESULT[url]$reset_color"
+            echo "$HTTP$CODE$NEXT_URL"
             URL=$RESULT[url]
         fi
 
