@@ -73,3 +73,36 @@ function ftp-mount() {
         curlftpfs $USER:$PASSWORD@$SERVER:$PORT $MOUNT_PATH && xdg-open $MOUNT_PATH
     fi
 }
+
+function redirects() {
+    autoload -U colors && colors
+    local URL=$1
+    local LIMIT=${2:-15}
+    local ITTERATION=0
+
+    while [ "$ITTERATION" -le "$LIMIT" ]; do
+        declare -A RESULT=()
+        while read -r KEY VALUE; do
+            RESULT[$KEY]="$VALUE"
+        done <<< $(curl -so /dev/null -w "http %{http_version}\ncode %{http_code}\nurl %{redirect_url}" "$URL")
+
+        if [[ -z $RESULT[url] ]]; then
+            COLOR=$fg[red]
+            [[ $(($RESULT[code])) -eq 200 ]] && COLOR=$fg[green]
+            echo "Result [$COLOR$RESULT[code]$reset_color]: $COLOR$URL$reset_color"
+            break
+        else
+            COLOR=''
+            [[ $RESULT[http] -eq 2 ]] && COLOR=$fg[green]
+            echo -n "HTTP/$COLOR$RESULT[http]$reset_color "
+            COLOR=$fg_bold[red]
+            [[ $(($RESULT[code])) -eq 301 || $(($RESULT[code])) -eq 308 ]] && COLOR=$fg[yellow]
+            echo -n "[$COLOR$RESULT[code]$reset_color] "
+            COLOR=$fg[yellow]
+            echo "=> $COLOR$RESULT[url]$reset_color"
+            URL=$RESULT[url]
+        fi
+
+        ITTERATION=$(($ITTERATION + 1))
+    done
+}
