@@ -80,6 +80,8 @@ function redirects() {
     local LIMIT=${2:-15}
     local ITTERATION=0
 
+    echo $fg_bold[green]$URL$reset_color
+
     while [ "$ITTERATION" -le "$LIMIT" ]; do
         declare -A RESULT=()
         while read -r KEY VALUE; do
