@@ -37,24 +37,22 @@ function memory() {
 }
 
 function theme-spaceship() {
-    local LOCAL_PATH="$ZSH_CUSTOM/themes/spaceship-prompt"
+    local LOCAL_PATH="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/spaceship-prompt"
 
-    if [[ -e "$ZSH_CUSTOM/themes/spaceship.zsh-theme" ]]; then
-        git -C "$LOCAL_PATH" pull
+    if [[ -d "$LOCAL_PATH" ]]; then
+        git -C "$LOCAL_PATH" pull --ff-only
     else
-        git clone https://github.com/denysdovhan/spaceship-prompt.git "$LOCAL_PATH"
-        ln -s "$LOCAL_PATH/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+        git clone --depth=1 https://github.com/denysdovhan/spaceship-prompt.git "$LOCAL_PATH"
     fi
 }
 
 function theme-punctual() {
-    local LOCAL_PATH="$ZSH_CUSTOM/themes/punctual-zsh-theme"
+    local LOCAL_PATH="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/punctual-zsh-theme"
 
-    if [[ -e "$ZSH_CUSTOM/themes/punctual.zsh-theme" ]]; then
-        git -C "$LOCAL_PATH" pull
+    if [[ -d "$LOCAL_PATH" ]]; then
+        git -C "$LOCAL_PATH" pull --ff-only
     else
-        git clone https://github.com/dannynimmo/punctual-zsh-theme.git "$LOCAL_PATH"
-        ln -s "$LOCAL_PATH/punctual.zsh-theme" "$ZSH_CUSTOM/themes/punctual.zsh-theme"
+        git clone --depth=1 https://github.com/dannynimmo/punctual-zsh-theme.git "$LOCAL_PATH"
     fi
 }
 
