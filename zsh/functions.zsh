@@ -58,6 +58,16 @@ function theme-punctual() {
     fi
 }
 
+function theme-powerlevel10k() {
+    local LOCAL_PATH="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+
+    if [[ -d "$LOCAL_PATH" ]]; then
+        git -C "$LOCAL_PATH" pull --ff-only
+    else
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$LOCAL_PATH"
+    fi
+}
+
 function ftp-mount() {
     local USER=$1
     local PASSWORD=$2
