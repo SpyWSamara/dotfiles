@@ -1,0 +1,10 @@
+[Unit]
+Description=Pass pull from git
+Documentation=man:pass(1)
+
+[Service]
+ExecStartPre=/usr/bin/sh -c '/usr/bin/pass git > /dev/null'
+ExecStart=/usr/bin/pass git pull
+
+[Install]
+WantedBy=default.target

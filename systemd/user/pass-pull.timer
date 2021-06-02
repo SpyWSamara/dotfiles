@@ -1,0 +1,9 @@
+[Unit]
+Description=Pass pull git updates
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=12h
+
+[Install]
+WantedBy=timers.target
