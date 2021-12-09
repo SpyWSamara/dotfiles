@@ -1,9 +1,3 @@
-[core]
-    editor = code --wait
-[diff]
-    tool = vscode
-[difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
 # Include local settings
 # Requires Git 1.7.10
 # git config -f ~/.gitlocal user.email "user@server.tld"
