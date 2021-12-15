@@ -22,3 +22,4 @@ alias gvfs-restart="systemctl --user restart gvfs-daemon.service"
 alias time="$(which time) -p"
 alias youtube-mp4="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias youtube-mp3="youtube-dl -x --audio-format mp3"
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
