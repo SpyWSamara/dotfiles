@@ -26,4 +26,5 @@ alias youtube-mp3="youtube-dl -x --audio-format mp3"
 alias youtube-byid="youtube-dl -f"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias hex='hexdump -C'
+alias stress-full-5m='stress-ng --sequential 0 -t 5m'
 
