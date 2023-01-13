@@ -6,3 +6,7 @@
     path = .gitlocal
 [pull]
     ff = only
+[init]
+	defaultBranch = main
+[alias]
+	conflicts = diff --name-only --diff-filter=U
