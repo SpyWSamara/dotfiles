@@ -3,7 +3,6 @@ alias virt-import-ova="LANG=en_US.UTF-8 virt-v2v -o libvirt -of qcow2 -os defaul
 alias libreoffice-to-pdf="libreoffice --headless --convert-to pdf"
 alias libreoffice-print="libreoffice -p"
 alias remove-known-host="ssh-keygen -R"
-alias ssh-config="code ~/.ssh/config"
 alias curl-headers="curl -sSLD - -o /dev/null"
 alias ffprobe-clear="ffprobe -hide_banner"
 alias login-log="journalctl -u systemd-logind | grep $USER | tail"
@@ -27,5 +26,5 @@ alias youtube-byid="youtube-dl -f"
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 alias hex='hexdump -C'
 alias stress-full-5m='stress-ng --sequential 0 -t 5m'
-alias sshconfig="${EDITOR:-vi} ~/.ssh/config"
+alias ssh-config="${EDITOR:-vi} ~/.ssh/config"
 
