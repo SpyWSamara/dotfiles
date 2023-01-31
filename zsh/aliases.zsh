@@ -1,4 +1,3 @@
-alias ssh-copy-my="ssh-copy-id -i ~/.ssh/id_rsa"
 alias virt-import-ova="LANG=en_US.UTF-8 virt-v2v -o libvirt -of qcow2 -os default -i ova"
 alias libreoffice-to-pdf="libreoffice --headless --convert-to pdf"
 alias libreoffice-print="libreoffice -p"
