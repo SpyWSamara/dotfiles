@@ -117,3 +117,20 @@ function redirects() {
         ITTERATION=$(($ITTERATION + 1))
     done
 }
+
+function remote-partition-copy() {
+    if [ "$#" -ne 3 ]; then
+        echo 'remote-partition-copy {connection} {partition} {localpath}'
+        echo 'Where:'
+        echo '    {connection} "like user@ip" or "-p 2022 user@ip"'
+        echo '    {partition} like "vda2" or "sda1"'
+        echo '    {localpath} absolute path to save like "/tmp/my.img" or "/home/user/server.vda2.img"'
+        return 1;
+    fi
+
+    local CONNECTION=$1
+    local PARTITION=$2
+    local LOCAL_PATH=$3
+    ssh "$CONNECTION" "sudo dd if=/dev/$PARTITION status=progress | gzip -1 -" | dd of=$LOCAL_PATH.gz
+
+}
