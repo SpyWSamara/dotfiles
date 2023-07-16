@@ -134,3 +134,13 @@ function remote-partition-copy() {
     ssh "$CONNECTION" "sudo dd if=/dev/$PARTITION status=progress | gzip -1 -" | dd of=$LOCAL_PATH.gz
 
 }
+
+
+# https://bugs.chromium.org/p/chromium/issues/detail?id=1442633
+function chromium-render-fix() {
+    for browser in chromium BraveSoftware google-chrome yandex-browser
+    do 
+        local searchdir="$HOME/.config/$browser/"
+        [ -d "$searchdir" ] && find "$searchdir" -type d -name "GPUCache" | xargs rm -rf
+    done
+}
