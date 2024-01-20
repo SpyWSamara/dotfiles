@@ -10,3 +10,5 @@
 	defaultBranch = main
 [alias]
 	conflicts = diff --name-only --diff-filter=U
+[core]
+	autocrlf = input
