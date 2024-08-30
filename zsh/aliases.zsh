@@ -28,4 +28,5 @@ alias stress-full-5m='stress-ng --sequential 0 -t 5m'
 alias ssh-config="${EDITOR:-vi} ~/.ssh/config"
 alias docker-compose="docker compose"
 alias uart-console="sudo screen /dev/ttyUSB0 115200"
+alias qr='qrencode -m 2 -t utf8 <<< "$1"'
 
